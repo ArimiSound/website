@@ -612,6 +612,22 @@ body {
     font-weight: 600;
 }
 
+/* Highlighted keywords */
+.highlight {
+    color: var(--accent-sage);
+    font-weight: 600;
+}
+
+.frequency {
+    color: var(--accent-terracotta);
+    font-weight: 600;
+}
+
+.benefit {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
 .card-content ul {
     margin: var(--spacing-md) 0;
     padding-left: var(--spacing-xl);
@@ -619,7 +635,7 @@ body {
 }
 
 .card-content li {
-    margin-bottom: var(--spacing-s);
+    margin-bottom: var(--spacing-sm);
     line-height: 1.7;
 }
 
