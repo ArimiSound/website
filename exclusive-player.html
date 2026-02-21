@@ -18,8 +18,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         .player-container {
-            max-width: 800px;
-            margin: 3rem auto;
+            max-width: 900px;  /* Aumentado de 800px */
+            margin: 2rem auto;  /* Menos margen arriba */
             padding: 2rem;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -29,11 +29,11 @@
 
         .player-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .player-header h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--text-dark);
             margin-bottom: 0.5rem;
             font-family: var(--font-display);
@@ -52,16 +52,16 @@
 
         .player-notice {
             background: rgba(168, 184, 159, 0.1);
-            padding: 1.5rem;
+            padding: 1rem 1.5rem;
             border-radius: 15px;
             margin-bottom: 2rem;
             border-left: 4px solid var(--accent-sage);
         }
 
         .player-notice p {
-            margin: 0.5rem 0;
+            margin: 0.3rem 0;
             color: var(--text-medium);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .track-list {
@@ -70,8 +70,8 @@
 
         .track-item {
             background: rgba(255, 255, 255, 0.8);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.8rem;
             border-radius: 15px;
             border: 2px solid transparent;
             transition: all 0.3s ease;
@@ -96,8 +96,8 @@
         }
 
         .track-icon {
-            font-size: 2rem;
-            min-width: 50px;
+            font-size: 1.8rem;
+            min-width: 45px;
             text-align: center;
         }
 
@@ -106,15 +106,15 @@
         }
 
         .track-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .track-meta {
             color: var(--text-medium);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .track-duration {
@@ -123,11 +123,9 @@
         }
 
         .audio-player {
-            position: sticky;
-            bottom: 2rem;
             background: var(--gradient-accent);
             backdrop-filter: blur(10px);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             margin-top: 2rem;
@@ -182,17 +180,17 @@
 
         .bookmark-notice {
             background: rgba(201, 185, 150, 0.1);
-            padding: 1rem;
+            padding: 0.8rem;
             border-radius: 10px;
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             border: 1px solid var(--accent-terracotta);
         }
 
         .bookmark-notice p {
             margin: 0;
             color: var(--text-medium);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
@@ -202,7 +200,7 @@
             }
 
             .audio-player {
-                bottom: 1rem;
+                padding: 1.5rem;
             }
         }
     </style>
@@ -229,68 +227,94 @@
 
             <!-- Track List -->
             <div class="track-list">
-                <h2 style="color: var(--text-dark); margin-bottom: 1.5rem;">Available Sessions</h2>
+                <h2 style="color: var(--text-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">Available Sessions</h2>
                 
-                <!-- Track 1 -->
+                <!-- Track 1: 396 Hz -->
                 <div class="track-item" onclick="loadTrack(0)">
                     <div class="track-info">
-                        <div class="track-icon">🌙</div>
+                        <div class="track-icon">🌱</div>
                         <div class="track-details">
-                            <div class="track-title">Deep Sleep Journey | 432 Hz</div>
+                            <div class="track-title">Root Chakra Release | 396 Hz</div>
                             <div class="track-meta">
-                                Release insomnia • Delta waves • <span class="track-duration">30:00</span>
+                                Classic guitar • Release negative emotions • Inner peace • 8 min
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Track 2 -->
+                <!-- Track 2: 432 Hz (Version 1) -->
                 <div class="track-item" onclick="loadTrack(1)">
                     <div class="track-info">
-                        <div class="track-icon">💫</div>
+                        <div class="track-icon">🌍</div>
                         <div class="track-details">
-                            <div class="track-title">Sacred Heart Opening | 639 Hz</div>
+                            <div class="track-title">Earth Connection | 432 Hz</div>
                             <div class="track-meta">
-                                Heal emotional wounds • Open to love • <span class="track-duration">25:00</span>
+                                Guitar & keyboards • Om mantra • Nature sounds • 30 min
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Track 3 -->
+                <!-- Track 3: 432 Hz (Version 2) -->
                 <div class="track-item" onclick="loadTrack(2)">
                     <div class="track-info">
-                        <div class="track-icon">🌿</div>
+                        <div class="track-icon">🎋</div>
                         <div class="track-details">
-                            <div class="track-title">Morning Awakening | 528 Hz</div>
+                            <div class="track-title">Deep Relaxation | 432 Hz</div>
                             <div class="track-meta">
-                                DNA repair • Cellular healing • <span class="track-duration">20:00</span>
+                                Shakuhachi flute • Kalimba • Schumann Resonance • 30 min
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Track 4 -->
+                <!-- Track 4: 528 Hz (Version 1) -->
                 <div class="track-item" onclick="loadTrack(3)">
+                    <div class="track-info">
+                        <div class="track-icon">⚡</div>
+                        <div class="track-details">
+                            <div class="track-title">Solar Power | 528 Hz</div>
+                            <div class="track-meta">
+                                Electric guitar & keyboards • Positivity • Focus • 6 min
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 5: 528 Hz (Version 2) -->
+                <div class="track-item" onclick="loadTrack(4)">
+                    <div class="track-info">
+                        <div class="track-icon">🌺</div>
+                        <div class="track-details">
+                            <div class="track-title">Nature's Healing | 528 Hz</div>
+                            <div class="track-meta">
+                                Ukulele • Nature sounds • Delta waves • 10 min
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 6: 639 Hz -->
+                <div class="track-item" onclick="loadTrack(5)">
+                    <div class="track-info">
+                        <div class="track-icon">💚</div>
+                        <div class="track-details">
+                            <div class="track-title">Heart Chakra Opening | 639 Hz</div>
+                            <div class="track-meta">
+                                Electric guitar • Binaural beats • Better relationships • 15 min
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 7: 852 Hz -->
+                <div class="track-item" onclick="loadTrack(6)">
                     <div class="track-info">
                         <div class="track-icon">🔮</div>
                         <div class="track-details">
                             <div class="track-title">Third Eye Activation | 852 Hz</div>
                             <div class="track-meta">
-                                Awaken intuition • Higher consciousness • <span class="track-duration">35:00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Track 5 -->
-                <div class="track-item" onclick="loadTrack(4)">
-                    <div class="track-info">
-                        <div class="track-icon">🌊</div>
-                        <div class="track-details">
-                            <div class="track-title">Ocean of Tranquility | 174 Hz</div>
-                            <div class="track-meta">
-                                Release physical pain • Deep body healing • <span class="track-duration">40:00</span>
+                                Classic & electric guitar • E-bow • Chanting • 32 min
                             </div>
                         </div>
                     </div>
@@ -342,33 +366,45 @@
         // Track database
         const tracks = [
             {
-                title: "Deep Sleep Journey | 432 Hz",
-                file: "track1.mp3", // Replace with actual GitHub URL
+                title: "Root Chakra Release | 396 Hz",
+                file: "https://drive.google.com/uc?export=download&id=1LYtuTUMBRKtpSaY92dVP1AUkZNS7RCEy",
+                duration: "8:00",
+                artwork: "profile.jpg"
+            },
+            {
+                title: "Earth Connection | 432 Hz",
+                file: "https://drive.google.com/uc?export=download&id=1Np2D0Oft8fHnqL6xeWWB_DQuP583vjZ8",
                 duration: "30:00",
                 artwork: "profile.jpg"
             },
             {
-                title: "Sacred Heart Opening | 639 Hz",
-                file: "track2.mp3",
-                duration: "25:00",
+                title: "Deep Relaxation | 432 Hz",
+                file: "https://drive.google.com/uc?export=download&id=1bb7FiEiAQi0_Wb-lqOoIAd-YyfnseFmY",
+                duration: "30:00",
                 artwork: "profile.jpg"
             },
             {
-                title: "Morning Awakening | 528 Hz",
-                file: "track3.mp3",
-                duration: "20:00",
+                title: "Solar Power | 528 Hz",
+                file: "https://drive.google.com/uc?export=download&id=1ePqWWplXNXIOsTavNzfBCZyWnoAJnYTv",
+                duration: "6:00",
+                artwork: "profile.jpg"
+            },
+            {
+                title: "Nature's Healing | 528 Hz",
+                file: "https://drive.google.com/uc?export=download&id=1SPwktiVBi_FOZS_XCK1uGuvZumBXWYaU",
+                duration: "10:00",
+                artwork: "profile.jpg"
+            },
+            {
+                title: "Heart Chakra Opening | 639 Hz",
+                file: "https://drive.google.com/uc?export=download&id=1AgSgevdz6W8nmUnLAybszSamCvLn_a4K",
+                duration: "15:00",
                 artwork: "profile.jpg"
             },
             {
                 title: "Third Eye Activation | 852 Hz",
-                file: "track4.mp3",
-                duration: "35:00",
-                artwork: "profile.jpg"
-            },
-            {
-                title: "Ocean of Tranquility | 174 Hz",
-                file: "track5.mp3",
-                duration: "40:00",
+                file: "https://drive.google.com/uc?export=download&id=1DO7D4dcq0KvkSh8j9hqKPxv1bEmnOzmp",
+                duration: "32:00",
                 artwork: "profile.jpg"
             }
         ];
