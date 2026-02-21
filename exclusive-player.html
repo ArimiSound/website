@@ -1,25 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusive Tracks - Arimi Sound Healer</title>
+    <title>Your Exclusive Healing Sessions | Arimi Sound Healer</title>
     <meta name="robots" content="noindex, nofollow">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Exclusive Healing Tracks | Arimi">
-    <meta property="og:description" content="Your exclusive access to healing frequencies and unreleased sessions.">
-    <meta property="og:image" content="https://musicforthesoul.live/profile.jpg">
-    
-    <link rel="icon" type="image/jpeg" href="profile.jpg">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --accent-sage: #8FA889;
+            --accent-terracotta: #C9A98E;
+            --text-dark: #3D3530;
+            --text-medium: #5C564F;
+            --gradient-accent: linear-gradient(135deg, #8FA889, #A8B89F);
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Lora', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, #f5f1ed 0%, #e8e3dc 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
         .player-container {
-            max-width: 900px;  /* Aumentado de 800px */
-            margin: 2rem auto;  /* Menos margen arriba */
+            max-width: 900px;
+            margin: 2rem auto;
             padding: 2rem;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -39,438 +52,103 @@
             font-family: var(--font-display);
         }
 
-        .exclusive-badge {
-            display: inline-block;
-            background: var(--gradient-accent);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .player-notice {
-            background: rgba(168, 184, 159, 0.1);
-            padding: 1rem 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--accent-sage);
-        }
-
-        .player-notice p {
-            margin: 0.3rem 0;
+        .player-header p {
             color: var(--text-medium);
-            font-size: 0.9rem;
-        }
-
-        .track-list {
-            margin-top: 2rem;
-        }
-
-        .track-item {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 1rem 1.5rem;
-            margin-bottom: 0.8rem;
-            border-radius: 15px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .track-item:hover {
-            border-color: var(--accent-sage);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(143, 168, 137, 0.2);
-        }
-
-        .track-item.playing {
-            border-color: var(--accent-sage);
-            background: rgba(143, 168, 137, 0.1);
+            font-size: 1rem;
         }
 
         .track-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .track-icon {
-            font-size: 1.8rem;
-            min-width: 45px;
             text-align: center;
-        }
-
-        .track-details {
-            flex: 1;
-        }
-
-        .track-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.2rem;
-        }
-
-        .track-meta {
-            color: var(--text-medium);
-            font-size: 0.85rem;
-        }
-
-        .track-duration {
-            color: var(--accent-sage);
-            font-weight: 600;
-        }
-
-        .audio-player {
-            background: var(--gradient-accent);
-            backdrop-filter: blur(10px);
+            margin: 2rem 0;
             padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            background: rgba(143, 168, 137, 0.1);
+            border-radius: 15px;
+        }
+
+        .track-info h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .track-info p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        .soundcloud-player {
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .back-link {
+            text-align: center;
             margin-top: 2rem;
         }
 
-        .now-playing {
-            color: white;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
-        }
-
-        .current-track-title {
-            color: white;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        audio {
-            width: 100%;
-            height: 50px;
-        }
-
-        .player-controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .control-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .control-btn:hover {
-            background: white;
+        .back-link a {
             color: var(--accent-sage);
-            transform: scale(1.1);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .bookmark-notice {
-            background: rgba(201, 185, 150, 0.1);
-            padding: 0.8rem;
+        .back-link a:hover {
+            color: var(--accent-terracotta);
+        }
+
+        .test-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
             border-radius: 10px;
+            padding: 1rem;
+            margin: 2rem 0;
             text-align: center;
-            margin-top: 1.5rem;
-            border: 1px solid var(--accent-terracotta);
-        }
-
-        .bookmark-notice p {
-            margin: 0;
-            color: var(--text-medium);
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .player-container {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-
-            .audio-player {
-                padding: 1.5rem;
-            }
+            color: #856404;
         }
     </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="background-waves"></div>
-    
-    <div class="container">
-        <div class="player-container">
-            
-            <!-- Header -->
-            <div class="player-header">
-                <span class="exclusive-badge">✨ EXCLUSIVE ACCESS</span>
-                <h1>Your Private Healing Sessions</h1>
-                <p style="color: var(--text-medium);">Thank you for joining our healing community 🙏🏼</p>
-            </div>
 
-            <!-- Notice -->
-            <div class="player-notice">
-                <p><strong>📱 Mobile Tip:</strong> You can control playback from your lock screen and notifications.</p>
-                <p><strong>🔖 Bookmark this page</strong> to access your exclusive tracks anytime.</p>
-                <p><strong>💫 New tracks added regularly</strong> - check back often!</p>
-            </div>
-
-            <!-- Track List -->
-            <div class="track-list">
-                <h2 style="color: var(--text-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">Available Sessions</h2>
-                
-                <!-- Track 1: 396 Hz -->
-                <div class="track-item" onclick="loadTrack(0)">
-                    <div class="track-info">
-                        <div class="track-icon">🌱</div>
-                        <div class="track-details">
-                            <div class="track-title">Root Chakra Release | 396 Hz</div>
-                            <div class="track-meta">
-                                Classic guitar • Release negative emotions • Inner peace • 8 min
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Track 2: 432 Hz (Version 1) -->
-                <div class="track-item" onclick="loadTrack(1)">
-                    <div class="track-info">
-                        <div class="track-icon">🌍</div>
-                        <div class="track-details">
-                            <div class="track-title">Earth Connection | 432 Hz</div>
-                            <div class="track-meta">
-                                Guitar & keyboards • Om mantra • Nature sounds • 30 min
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Track 3: 432 Hz (Version 2) -->
-                <div class="track-item" onclick="loadTrack(2)">
-                    <div class="track-info">
-                        <div class="track-icon">🎋</div>
-                        <div class="track-details">
-                            <div class="track-title">Deep Relaxation | 432 Hz</div>
-                            <div class="track-meta">
-                                Shakuhachi flute • Kalimba • Schumann Resonance • 30 min
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Track 4: 528 Hz (Version 1) -->
-                <div class="track-item" onclick="loadTrack(3)">
-                    <div class="track-info">
-                        <div class="track-icon">⚡</div>
-                        <div class="track-details">
-                            <div class="track-title">Solar Power | 528 Hz</div>
-                            <div class="track-meta">
-                                Electric guitar & keyboards • Positivity • Focus • 6 min
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Track 5: 528 Hz (Version 2) -->
-                <div class="track-item" onclick="loadTrack(4)">
-                    <div class="track-info">
-                        <div class="track-icon">🌺</div>
-                        <div class="track-details">
-                            <div class="track-title">Nature's Healing | 528 Hz</div>
-                            <div class="track-meta">
-                                Ukulele • Nature sounds • Delta waves • 10 min
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Track 6: 639 Hz -->
-                <div class="track-item" onclick="loadTrack(5)">
-                    <div class="track-info">
-                        <div class="track-icon">💚</div>
-                        <div class="track-details">
-                            <div class="track-title">Heart Chakra Opening | 639 Hz</div>
-                            <div class="track-meta">
-                                Electric guitar • Binaural beats • Better relationships • 15 min
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Track 7: 852 Hz -->
-                <div class="track-item" onclick="loadTrack(6)">
-                    <div class="track-info">
-                        <div class="track-icon">🔮</div>
-                        <div class="track-details">
-                            <div class="track-title">Third Eye Activation | 852 Hz</div>
-                            <div class="track-meta">
-                                Classic & electric guitar • E-bow • Chanting • 32 min
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Audio Player (Sticky) -->
-            <div class="audio-player">
-                <div class="now-playing">NOW PLAYING</div>
-                <div class="current-track-title" id="currentTitle">Select a track to begin</div>
-                
-                <audio id="audioPlayer" controls>
-                    Your browser does not support the audio element.
-                </audio>
-
-                <div class="player-controls">
-                    <button class="control-btn" onclick="previousTrack()" title="Previous">⏮️</button>
-                    <button class="control-btn" onclick="nextTrack()" title="Next">⏭️</button>
-                </div>
-            </div>
-
-            <!-- Bookmark Notice -->
-            <div class="bookmark-notice">
-                <p>🔗 <strong>Bookmark this page now!</strong> This is your personal link to return anytime.</p>
-            </div>
-
-            <!-- Donate Section -->
-            <div style="background: linear-gradient(135deg, rgba(168, 184, 159, 0.12) 0%, rgba(201, 185, 150, 0.08) 100%); padding: 2.5rem 2rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">🌿</div>
-                <h3 style="font-size: 1.5rem; color: var(--text-dark); margin-bottom: 1rem; font-family: var(--font-display);">If my music has brought you peace, healing, or joy</h3>
-                <p style="color: var(--text-medium); margin-bottom: 2rem; font-family: var(--font-body);">Please consider offering a donation. Every contribution, big or small, fuels this mission and keeps the frequencies flowing. 🙏🏼✨ Thank you for your kindness and support 💛</p>
-                <a href="https://donate.stripe.com/cN25n7adAcypaOcbII" target="_blank" style="display: inline-block; background: var(--gradient-accent); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(143, 168, 137, 0.3);">
-                    Donate
-                </a>
-            </div>
-
-            <!-- Back to Home -->
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="index.html" style="color: var(--accent-sage); text-decoration: none; font-weight: 600;">
-                    ← Back to Home
-                </a>
-            </div>
-
+    <div class="player-container">
+        
+        <div class="player-header">
+            <h1>✨ Your Private Healing Sessions</h1>
+            <p>Thank you for joining our healing community</p>
         </div>
+
+        <div class="test-note">
+            🧪 <strong>TEST - Track 1 Only</strong><br>
+            Testing SoundCloud integration with Root Chakra track
+        </div>
+
+        <div class="track-info">
+            <h2>🌱 Root Chakra Release | 396 Hz</h2>
+            <p>Classic guitar • Release negative emotions • Inner peace • 8 min</p>
+        </div>
+
+        <div class="soundcloud-player">
+            <iframe 
+                width="100%" 
+                height="166" 
+                scrolling="no" 
+                frameborder="no" 
+                allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https://soundcloud.com/frequenciesforthesoul/1_396/s-aAGmx10K93C&color=%238fa889&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
+            </iframe>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+
     </div>
 
-    <script>
-        // Track database
-        const tracks = [
-            {
-                title: "Root Chakra Release | 396 Hz",
-                file: "https://drive.google.com/uc?export=download&id=1LYtuTUMBRKtpSaY92dVP1AUkZNS7RCEy",
-                duration: "8:00",
-                artwork: "profile.jpg"
-            },
-            {
-                title: "Earth Connection | 432 Hz",
-                file: "https://drive.google.com/uc?export=download&id=1Np2D0Oft8fHnqL6xeWWB_DQuP583vjZ8",
-                duration: "30:00",
-                artwork: "profile.jpg"
-            },
-            {
-                title: "Deep Relaxation | 432 Hz",
-                file: "https://drive.google.com/uc?export=download&id=1bb7FiEiAQi0_Wb-lqOoIAd-YyfnseFmY",
-                duration: "30:00",
-                artwork: "profile.jpg"
-            },
-            {
-                title: "Solar Power | 528 Hz",
-                file: "https://drive.google.com/uc?export=download&id=1ePqWWplXNXIOsTavNzfBCZyWnoAJnYTv",
-                duration: "6:00",
-                artwork: "profile.jpg"
-            },
-            {
-                title: "Nature's Healing | 528 Hz",
-                file: "https://drive.google.com/uc?export=download&id=1SPwktiVBi_FOZS_XCK1uGuvZumBXWYaU",
-                duration: "10:00",
-                artwork: "profile.jpg"
-            },
-            {
-                title: "Heart Chakra Opening | 639 Hz",
-                file: "https://drive.google.com/uc?export=download&id=1AgSgevdz6W8nmUnLAybszSamCvLn_a4K",
-                duration: "15:00",
-                artwork: "profile.jpg"
-            },
-            {
-                title: "Third Eye Activation | 852 Hz",
-                file: "https://drive.google.com/uc?export=download&id=1DO7D4dcq0KvkSh8j9hqKPxv1bEmnOzmp",
-                duration: "32:00",
-                artwork: "profile.jpg"
-            }
-        ];
-
-        let currentTrackIndex = -1;
-        const audioPlayer = document.getElementById('audioPlayer');
-        const currentTitle = document.getElementById('currentTitle');
-
-        // Load track
-        function loadTrack(index) {
-            currentTrackIndex = index;
-            const track = tracks[index];
-            
-            // Update player
-            audioPlayer.src = track.file;
-            currentTitle.textContent = track.title;
-            
-            // Update UI
-            document.querySelectorAll('.track-item').forEach((item, i) => {
-                item.classList.toggle('playing', i === index);
-            });
-            
-            // Play
-            audioPlayer.play().catch(e => console.log('Playback prevented:', e));
-            
-            // Update Media Session API
-            if ('mediaSession' in navigator) {
-                navigator.mediaSession.metadata = new MediaMetadata({
-                    title: track.title,
-                    artist: 'Arimi Sound Healer',
-                    album: 'Exclusive Sessions',
-                    artwork: [
-                        { src: track.artwork, sizes: '512x512', type: 'image/jpeg' }
-                    ]
-                });
-
-                navigator.mediaSession.setActionHandler('play', () => audioPlayer.play());
-                navigator.mediaSession.setActionHandler('pause', () => audioPlayer.pause());
-                navigator.mediaSession.setActionHandler('previoustrack', previousTrack);
-                navigator.mediaSession.setActionHandler('nexttrack', nextTrack);
-            }
-        }
-
-        // Previous track
-        function previousTrack() {
-            if (currentTrackIndex > 0) {
-                loadTrack(currentTrackIndex - 1);
-            } else {
-                loadTrack(tracks.length - 1); // Loop to last
-            }
-        }
-
-        // Next track
-        function nextTrack() {
-            if (currentTrackIndex < tracks.length - 1) {
-                loadTrack(currentTrackIndex + 1);
-            } else {
-                loadTrack(0); // Loop to first
-            }
-        }
-
-        // Auto-play next track
-        audioPlayer.addEventListener('ended', nextTrack);
-
-        // Auto-load first track on page load (optional)
-        // window.addEventListener('load', () => loadTrack(0));
-    </script>
 </body>
 </html>
